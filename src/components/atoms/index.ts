@@ -1,4 +1,4 @@
 import InputText from './inputText';
-import ListCard from './listCard';
+import PodcastListCard from './podcastListCard';
 
-export { InputText, ListCard };
+export { InputText, PodcastListCard };

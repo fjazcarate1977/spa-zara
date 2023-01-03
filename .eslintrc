@@ -74,16 +74,24 @@
         ],
         "pathGroups": [
           {
+            "pattern": "@lib/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
             "pattern": "{@organisms,@molecules,@atoms}/**",
             "group": "internal",
             "position": "after"
           }
         ]
       }
-    ]
+    ],
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-argument": "off"
   },
   "settings": {
-    "import/internal-regex": "^((@organisms)|(@molecules)|(@atoms))/.+",
+    "import/internal-regex": "^((@organisms)|(@molecules)|(@atoms)|(@lib))/.+",
     "react": { "version": "detect" }
   }
 }
