@@ -1,26 +1,8 @@
-import { AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { InputText } from '@atoms/index';
-import { PodcastList } from '@molecules/index';
-
-import { getPodcastData } from './lib/api';
+import { MainTemplate } from '@templates/index';
 
 export default function App() {
-  const [podcastList, setPodcastList] = useState();
-
-  useEffect(() => {
-    getAllPodcast() as unknown;
-  }, []);
-
-  const getAllPodcast = async (): Promise<void> => {
-    const res = (await getPodcastData()) as AxiosResponse;
-    if (res.data.feed?.entry) {
-      const { entry } = res.data.feed;
-      setPodcastList(entry);
-    }
-  };
-
   return (
     <div>
       <nav className="w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
@@ -35,20 +17,7 @@ export default function App() {
           </div>
         </div>
       </nav>
-      <div>
-        <main>
-          <section className="relative">
-            <div className="container mx-auto px-4 pb-32 lg:pb-48 ">
-              <InputText handleInput={() => console.warn('Callback working')} />
-            </div>
-            {podcastList && (
-              <div className="container mx-auto px-4 pb-32 lg:pb-48 ">
-                <PodcastList podcastList={podcastList} />
-              </div>
-            )}
-          </section>
-        </main>
-      </div>
+      <MainTemplate />
     </div>
   );
 }

@@ -16,8 +16,20 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src/components/molecules')
       },
       {
+        find: '@organisms',
+        replacement: path.resolve(__dirname, 'src/components/organisms')
+      },
+      {
+        find: '@templates',
+        replacement: path.resolve(__dirname, 'src/components/templates')
+      },
+      {
         find: '@lib',
         replacement: path.resolve(__dirname, 'src/lib')
+      },
+      {
+        find: '@store',
+        replacement: path.resolve(__dirname, 'src/store')
       }
     ]
   }

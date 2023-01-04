@@ -1,10 +1,11 @@
 import React from 'react';
 
+import { PodcastListCardProps } from '@lib/types';
+
 import { PodcastListCard } from '@atoms/index';
 
 interface PodcastListProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  podcastList: any[];
+  podcastList: PodcastListCardProps[];
 }
 
 const PodcastList: React.FC<PodcastListProps> = ({
@@ -13,13 +14,7 @@ const PodcastList: React.FC<PodcastListProps> = ({
   <div className="container mx-auto px-4 pb-32 lg:pb-48 ">
     <div className="flex flex-wrap justify-center">
       {podcastList.map((data, index: number) => (
-        <PodcastListCard
-          key={index}
-          image={data['im:image'][2].label}
-          title={data['im:name'].label}
-          author={data['im:artist'].label}
-          id={data.id.attributes['im:id']}
-        />
+        <PodcastListCard key={index} {...data} />
       ))}
     </div>
   </div>
