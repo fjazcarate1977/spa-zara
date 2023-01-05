@@ -1,12 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { PodcastListCardProps } from '@lib/types';
+import { PodcastListCardProps, PodcastInfoProps } from '@lib/types';
 
 interface PodcastsStateProps {
   podcastList: PodcastListCardProps[];
+  podcastsInfo: PodcastInfoProps[];
 }
 
-const InitialPodcastsState: PodcastsStateProps = { podcastList: [] };
+const InitialPodcastsState: PodcastsStateProps = {
+  podcastList: [],
+  podcastsInfo: []
+};
 
 const PodcastsSlice = createSlice({
   name: 'podcasts',
@@ -14,6 +18,9 @@ const PodcastsSlice = createSlice({
   reducers: {
     setPodcastList(state, action: PayloadAction<PodcastListCardProps[]>) {
       state.podcastList = action.payload;
+    },
+    updatePodcastInfo(state, action: PayloadAction<PodcastInfoProps[]>) {
+      state.podcastsInfo = [...state.podcastsInfo, ...action.payload];
     }
   }
 });

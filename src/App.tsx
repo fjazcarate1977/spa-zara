@@ -1,6 +1,7 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import { MainTemplate } from '@templates/index';
+import { MainTemplate, PodcastTemplate } from '@templates/index';
 
 export default function App() {
   return (
@@ -17,7 +18,12 @@ export default function App() {
           </div>
         </div>
       </nav>
-      <MainTemplate />
+
+      <Routes>
+        <Route path="/" element={<MainTemplate />} />
+        <Route path="/podcast/:id" element={<PodcastTemplate />} />
+        <Route path="*" element={<MainTemplate />} />
+      </Routes>
     </div>
   );
 }

@@ -1,3 +1,4 @@
 import MainTemplate from './mainTemplate';
+import PodcastTemplate from './podcastTemplate';
 
-export { MainTemplate };
+export { MainTemplate, PodcastTemplate };

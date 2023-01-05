@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { PodcastListCardProps } from '@lib/types';
 
@@ -11,16 +12,18 @@ const PodcastListCard: React.FC<PodcastListCardProps> = ({
   <div className="w-full md:w-6/12 lg:w-3/12 mb-12 px-4 min-h-300-px">
     <div className="relative h-full w-full px-6">
       <div className="w-full text-center -mb-12">
-        <img
-          alt={title}
-          src={image}
-          className="rounded-full mx-auto max-w-120-px"
-        />
+        <Link to={`podcast/${id}`}>
+          <img
+            alt={title}
+            src={image}
+            className="rounded-full mx-auto max-w-120-px"
+          />
+        </Link>
       </div>
 
       <div className="w-full bottom-0 p-3 pt-14 text-center shadow-md">
         <h5 className="text-xl font-bold">{title}</h5>
-        <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">{`Author: ${author} ${id}`}</p>
+        <p className="mt-1 text-sm text-blueGray-400 font-semibold">{`Author: ${author}`}</p>
       </div>
     </div>
   </div>
