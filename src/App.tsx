@@ -21,7 +21,10 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<MainTemplate />} />
-        <Route path="/podcast/:id" element={<PodcastTemplate />} />
+        <Route
+          path="/podcast/:id/episode?/:ep?"
+          element={<PodcastTemplate />}
+        />
         <Route path="*" element={<MainTemplate />} />
       </Routes>
     </div>

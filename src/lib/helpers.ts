@@ -1,4 +1,4 @@
-import { PodcastInfoProps } from '@lib/types';
+import { PodcastInfoProps, PodcastListCardProps } from '@lib/types';
 
 export const filterByString = <T, K extends keyof T>(
   data: T[],
@@ -13,13 +13,12 @@ export const filterByString = <T, K extends keyof T>(
   );
 
 /* eslint-disable */
-export const parserEntry = <T>(data: any): T[] =>
+export const parserEntry = (data: any): PodcastListCardProps[] =>
   data.map((data: any) => ({
     image: data['im:image'][2].label,
     title: data['im:name'].label,
     author: data['im:artist'].label,
-    id: data.id.attributes['im:id'],
-    summary: data.summary.label
+    id: data.id.attributes['im:id']
   }));
 /* eslint-enable */
 
@@ -33,9 +32,11 @@ export const parserRss = (id: string, data: any): PodcastInfoProps[] => {
     {
       id,
       rss: {
-        title,
-        description,
-        image,
+        card: {
+          title,
+          description,
+          image
+        },
         items
       }
     }

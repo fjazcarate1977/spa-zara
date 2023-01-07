@@ -10,14 +10,18 @@ export interface PodcastInfoProps {
   rss: RssProps;
 }
 
-interface RssProps {
-  title: string;
-  description: string;
-  image: string;
+export interface RssProps {
+  card: RssCardProps;
   items: RssItemProps[];
 }
 
-interface RssItemProps {
+export interface RssCardProps {
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface RssItemProps {
   title: string;
   itunes_duration: number | string;
   published: number;

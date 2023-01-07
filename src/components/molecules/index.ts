@@ -1,3 +1,4 @@
+import EpisodeList from './episodeList';
 import PodcastList from './podcastList';
 
-export { PodcastList };
+export { PodcastList, EpisodeList };
