@@ -28,6 +28,7 @@ export const parserRss = (id: string, data: any): PodcastInfoProps[] => {
   const jsonToObject = JSON.parse(rssToJson);
 
   const { title, description, image, items } = jsonToObject;
+
   return [
     {
       id,
