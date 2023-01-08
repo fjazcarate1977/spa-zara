@@ -11,6 +11,9 @@ export const getPodcastData = async (
     const res = await axios.get(urlReady);
     return res;
   } catch (error) {
-    return error as AxiosError;
+    throw new Error(
+      'Something went wrong fetching the data, please check the CORS utility link',
+      { cause: error }
+    );
   }
 };
