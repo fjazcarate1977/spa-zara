@@ -2,19 +2,19 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Header } from '@organisms/index';
-import { MainTemplate, PodcastTemplate } from '@templates/index';
+import * as Templates from '@templates/index';
 
 export default function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<MainTemplate />} />
+        <Route path="/" element={<Templates.Main />} />
         <Route
           path="/podcast/:id/episode?/:ep?"
-          element={<PodcastTemplate />}
+          element={<Templates.Podcast />}
         />
-        <Route path="*" element={<MainTemplate />} />
+        <Route path="*" element={<Templates.Main />} />
       </Routes>
     </>
   );

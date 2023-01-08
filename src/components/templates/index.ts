@@ -1,4 +1,4 @@
-import MainTemplate from './mainTemplate';
-import PodcastTemplate from './podcastTemplate';
+import Main from './main';
+import Podcast from './podcast';
 
-export { MainTemplate, PodcastTemplate };
+export { Main, Podcast };

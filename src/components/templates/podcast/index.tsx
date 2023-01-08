@@ -6,18 +6,20 @@ import parse from 'rss-to-json';
 
 import { getPodcastData } from '@lib/api';
 import { parserRss } from '@lib/helpers';
+import { useReload } from '@lib/hooks';
 import { RootState } from '@store/index';
 import { LoadingActions } from '@store/loading';
 import { PodcastsActions } from '@store/podcasts';
 
 import { PodcastInfo } from '@organisms/index';
 
-const PodcastTemplate: React.FC = () => {
+const Podcast: React.FC = () => {
   const podcastsInfo = useSelector(
     (state: RootState) => state.podcasts.podcastsInfo
   );
   const dispatch = useDispatch();
   const { id } = useParams();
+  const reload = useReload('nextUpdatePodcast');
 
   const currentPodcastsInfo = podcastsInfo.find((data) => data.id === id);
 
@@ -44,14 +46,14 @@ const PodcastTemplate: React.FC = () => {
       /* eslint-enable */
     };
 
-    if (!currentPodcastsInfo) {
+    if (!currentPodcastsInfo || reload) {
       storePodcastInfo() as unknown;
     }
-  }, [podcastsInfo, dispatch, id, currentPodcastsInfo]);
+  }, [podcastsInfo, dispatch, id, currentPodcastsInfo, reload]);
 
   return (
     <>{currentPodcastsInfo && <PodcastInfo {...currentPodcastsInfo.rss} />}</>
   );
 };
 
-export default PodcastTemplate;
+export default Podcast;

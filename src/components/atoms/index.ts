@@ -7,11 +7,11 @@ import PodcastListCard from './podcastListCard';
 import Title from './title';
 
 export {
-	InputText,
-	PodcastListCard,
-	PodcastCard,
-	Counter,
-	EpisodeCard,
-	Loading,
-	Title
+  InputText,
+  PodcastListCard,
+  PodcastCard,
+  Counter,
+  EpisodeCard,
+  Loading,
+  Title
 };

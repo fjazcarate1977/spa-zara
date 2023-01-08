@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { filterByString } from '@lib/helpers';
 import { PodcastListCardProps } from '@lib/types';
 
-import { InputText } from '@atoms/index';
+import { InputText, Counter } from '@atoms/index';
 import { PodcastList } from '@molecules/index';
 
 interface FilterListProps {
@@ -39,6 +39,7 @@ const FilterList: React.FC<FilterListProps> = ({
       <section className="relative">
         <div className="container mx-auto px-4 pb-24 lg:pb-32 ">
           <div className="flex flex-wrap justify-end">
+            <Counter isIcon itemsArray={podcastListFiltered} />
             <div className="w-full md:w-6/12 lg:w-3/12">
               <InputText handleInput={(e) => handleSetSearchString(e)} />
             </div>

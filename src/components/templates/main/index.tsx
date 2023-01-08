@@ -4,17 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getPodcastData } from '@lib/api';
 import { parserEntry } from '@lib/helpers';
+import { useReload } from '@lib/hooks';
 import { RootState } from '@store/index';
 import { LoadingActions } from '@store/loading';
 import { PodcastsActions } from '@store/podcasts';
 
 import { FilterList } from '@organisms/index';
 
-const MainTemplate: React.FC = () => {
+const Main: React.FC = () => {
   const podcastList = useSelector(
     (state: RootState) => state.podcasts.podcastList
   );
   const dispatch = useDispatch();
+  const reload = useReload('nextUpdateList');
 
   useEffect(() => {
     const storeAllPodcast = async (): Promise<void> => {
@@ -30,14 +32,14 @@ const MainTemplate: React.FC = () => {
       }
       /* eslint-enable */
     };
-    if (!(podcastList.length > 0)) {
+    if (!(podcastList.length > 0) || reload) {
       storeAllPodcast() as unknown;
     }
-  }, [podcastList, dispatch]);
+  }, [podcastList, dispatch, reload]);
 
   return (
     <>{podcastList.length > 0 && <FilterList podcastList={podcastList} />}</>
   );
 };
 
-export default MainTemplate;
+export default Main;
