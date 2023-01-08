@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPodcastData } from '@lib/api';
 import { parserEntry } from '@lib/helpers';
 import { RootState } from '@store/index';
+import { LoadingActions } from '@store/loading';
 import { PodcastsActions } from '@store/podcasts';
 
 import { FilterList } from '@organisms/index';
@@ -18,7 +19,9 @@ const MainTemplate: React.FC = () => {
   useEffect(() => {
     const storeAllPodcast = async (): Promise<void> => {
       const url = import.meta.env.VITE_API_PODCAST_LIST_URL as string;
+      dispatch(LoadingActions.setLoading(true));
       const res = (await getPodcastData(url)) as AxiosResponse;
+      dispatch(LoadingActions.setLoading(false));
 
       /* eslint-disable */
       if (res.data.feed?.entry) {

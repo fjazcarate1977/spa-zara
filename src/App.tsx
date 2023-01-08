@@ -1,24 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { Header } from '@organisms/index';
 import { MainTemplate, PodcastTemplate } from '@templates/index';
 
 export default function App() {
   return (
-    <div>
-      <nav className="w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
-              className="text-black text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-3xl"
-              href="/"
-            >
-              Podcaster
-            </a>
-          </div>
-        </div>
-      </nav>
-
+    <>
+      <Header />
       <Routes>
         <Route path="/" element={<MainTemplate />} />
         <Route
@@ -27,6 +16,6 @@ export default function App() {
         />
         <Route path="*" element={<MainTemplate />} />
       </Routes>
-    </div>
+    </>
   );
 }

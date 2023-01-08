@@ -35,23 +35,21 @@ const FilterList: React.FC<FilterListProps> = ({
   ];
 
   return (
-    <div>
-      <main>
-        <section className="relative">
-          <div className="container mx-auto px-4 pb-24 lg:pb-32 ">
-            <div className="flex flex-wrap justify-end">
-              <div className="w-full md:w-6/12 lg:w-3/12">
-                <InputText handleInput={(e) => handleSetSearchString(e)} />
-              </div>
+    <main>
+      <section className="relative">
+        <div className="container mx-auto px-4 pb-24 lg:pb-32 ">
+          <div className="flex flex-wrap justify-end">
+            <div className="w-full md:w-6/12 lg:w-3/12">
+              <InputText handleInput={(e) => handleSetSearchString(e)} />
             </div>
           </div>
+        </div>
 
-          <div className="container mx-auto px-4 pb-24 lg:pb-32 ">
-            <PodcastList podcastList={podcastListFiltered} />
-          </div>
-        </section>
-      </main>
-    </div>
+        <div className="container mx-auto px-4 pb-24 lg:pb-32 ">
+          <PodcastList podcastList={podcastListFiltered} />
+        </div>
+      </section>
+    </main>
   );
 };
 
