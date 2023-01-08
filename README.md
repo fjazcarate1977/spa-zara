@@ -55,6 +55,7 @@ In order to have the code files equally formatted, the [Prettier](https://pretti
 
 - **_IMPORTANT!_** Don´t forget to visit before browsing the SPA [Cors everyone](https://cors-anywhere.herokuapp.com/) in order to avoid any CORS problems.
 - In order to improve the experience, the SPA is responsive.
+- You can check the local storage for the reload time.
 
 ## Knowing issues:
 
